@@ -6,460 +6,439 @@
     <title>HelioFlux | 5-Year Strategic Roadmap</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* ===== BASE RESET ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* ===== DESIGN TOKENS (from professional-web-builder) ===== */
+        :root {
+            /* Healthcare Palette */
+            --primary: #0f2a4a;
+            --primary-light: #1e3a5f;
+            --secondary: #14b8a6;
+            --secondary-hover: #0d9488;
+            --accent: #0ea5e9;
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --text-light: #94a3b8;
+            --border: #e2e8f0;
+            
+            /* Phase Colors */
+            --phase-1: #14b8a6;
+            --phase-2: #0ea5e9;
+            --phase-3: #8b5cf6;
+            --phase-4: #f59e0b;
+            
+            /* Spacing (8px grid) */
+            --space-1: 4px;
+            --space-2: 8px;
+            --space-3: 12px;
+            --space-4: 16px;
+            --space-5: 20px;
+            --space-6: 24px;
+            --space-8: 32px;
+            --space-10: 40px;
+            --space-12: 48px;
+            --space-16: 64px;
+            --space-20: 80px;
+            
+            /* Typography */
+            --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            --text-xs: 0.8rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 1.875rem;
+            --text-4xl: 2.25rem;
+            
+            /* Effects */
+            --shadow-sm: 0 2px 10px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 12px;
+            --transition: 0.3s ease;
         }
         
+        /* ===== GLOBAL STYLES ===== */
         body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background: #f8fafc;
-            color: #1e293b;
+            font-family: var(--font-family);
+            background: var(--background);
+            color: var(--text);
             line-height: 1.6;
-        }
-        
-        /* Header */
-        .top-bar {
-            background: #0f2a4a;
-            color: #94a3b8;
-            padding: 8px 0;
-            font-size: 0.85rem;
-        }
-        
-        .top-bar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .top-bar a {
-            color: #94a3b8;
-            text-decoration: none;
-        }
-        
-        .main-header {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .main-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #0ea5e9, #14b8a6);
-            border-radius: 10px;
-        }
-        
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #0f2a4a;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: #475569;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-        
-        .nav-links a:hover {
-            color: #0ea5e9;
-        }
-        
-        .btn-primary {
-            background: #14b8a6;
-            color: #fff;
-            padding: 10px 24px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: background 0.3s;
-        }
-        
-        .btn-primary:hover {
-            background: #0d9488;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 var(--space-5);
         }
         
-        /* Hero */
+        /* ===== COMPONENT: Top Bar ===== */
+        .top-bar {
+            background: var(--primary);
+            color: var(--text-light);
+            padding: var(--space-2) 0;
+            font-size: var(--text-sm);
+        }
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-bar a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+        .top-bar a:hover { color: var(--secondary); }
+        
+        /* ===== COMPONENT: Header ===== */
+        .main-header {
+            background: var(--surface);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-4) var(--space-5);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            border-radius: var(--radius-md);
+        }
+        .logo-text {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .nav-links {
+            display: flex;
+            gap: var(--space-8);
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: var(--text-base);
+            transition: color var(--transition);
+        }
+        .nav-links a:hover { color: var(--accent); }
+        
+        /* ===== COMPONENT: Button ===== */
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--surface);
+            padding: var(--space-3) var(--space-6);
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: var(--text-sm);
+            transition: background var(--transition);
+            display: inline-block;
+        }
+        .btn-primary:hover { background: var(--secondary-hover); }
+        
+        /* ===== COMPONENT: Hero ===== */
         .hero {
-            background: linear-gradient(135deg, #0f2a4a 0%, #1e3a5f 100%);
-            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            padding: var(--space-20) 0;
             position: relative;
             overflow: hidden;
         }
-        
-        .hero::before {
+        .hero::after {
             content: '';
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="80" cy="20" r="40" fill="%2314b8a620"/><circle cx="90" cy="60" r="30" fill="%230ea5e915"/></svg>');
-            background-size: cover;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(14,165,233,0.1) 0%, transparent 70%);
+            border-radius: 50%;
         }
-        
         .hero-content {
             position: relative;
             z-index: 1;
-            max-width: 600px;
+            max-width: 650px;
         }
-        
         .hero-label {
             display: inline-block;
-            background: rgba(20, 184, 166, 0.2);
-            color: #14b8a6;
-            padding: 6px 16px;
+            background: rgba(20, 184, 166, 0.15);
+            color: var(--secondary);
+            padding: var(--space-2) var(--space-4);
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: var(--text-sm);
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: var(--space-5);
+            letter-spacing: 0.5px;
         }
-        
         .hero h1 {
-            color: #fff;
-            font-size: 2.8rem;
+            color: var(--surface);
+            font-size: var(--text-4xl);
             font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 20px;
+            line-height: 1.15;
+            margin-bottom: var(--space-5);
         }
-        
         .hero p {
-            color: #94a3b8;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
+            color: var(--text-light);
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-8);
+            line-height: 1.7;
         }
         
-        /* Stats */
+        /* ===== COMPONENT: Stats ===== */
         .stats-section {
-            padding: 60px 0;
-            background: #fff;
+            padding: var(--space-16) 0;
+            background: var(--surface);
         }
-        
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
+            gap: var(--space-8);
         }
-        
         .stat-card {
             text-align: center;
-            padding: 30px 20px;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            border: 1px solid #e2e8f0;
+            padding: var(--space-8) var(--space-5);
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+            transition: transform var(--transition), box-shadow var(--transition);
         }
-        
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
         .stat-value {
-            font-size: 2.5rem;
+            font-size: var(--text-4xl);
             font-weight: 700;
-            color: #0f2a4a;
+            color: var(--primary);
         }
-        
-        .stat-value span {
-            color: #14b8a6;
-        }
-        
+        .stat-value span { color: var(--secondary); }
         .stat-label {
-            color: #64748b;
-            font-size: 0.95rem;
-            margin-top: 8px;
+            color: var(--text-muted);
+            font-size: var(--text-base);
+            margin-top: var(--space-2);
         }
         
-        /* Section */
+        /* ===== COMPONENT: Section ===== */
         .section {
-            padding: 70px 0;
+            padding: var(--space-20) 0;
         }
-        
         .section-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: var(--space-12);
         }
-        
         .section-label {
             display: inline-block;
-            color: #64748b;
-            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-size: var(--text-sm);
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 10px;
+            margin-bottom: var(--space-3);
         }
-        
         .section-title {
-            font-size: 2rem;
+            font-size: var(--text-3xl);
             font-weight: 700;
-            color: #0f2a4a;
+            color: var(--primary);
         }
         
-        /* Timeline */
+        /* ===== COMPONENT: Timeline ===== */
         .timeline-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            gap: var(--space-5);
         }
-        
         .phase-card {
-            background: #fff;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            box-shadow: var(--shadow-md);
             border-top: 4px solid;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform var(--transition), box-shadow var(--transition);
         }
-        
         .phase-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
         }
-        
-        .phase-1 { border-top-color: #14b8a6; }
-        .phase-2 { border-top-color: #0ea5e9; }
-        .phase-3 { border-top-color: #8b5cf6; }
-        .phase-4 { border-top-color: #f59e0b; }
+        .phase-1 { border-top-color: var(--phase-1); }
+        .phase-2 { border-top-color: var(--phase-2); }
+        .phase-3 { border-top-color: var(--phase-3); }
+        .phase-4 { border-top-color: var(--phase-4); }
         
         .phase-number {
-            font-size: 0.8rem;
+            font-size: var(--text-xs);
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 8px;
+            margin-bottom: var(--space-2);
         }
-        
-        .phase-1 .phase-number { color: #14b8a6; }
-        .phase-2 .phase-number { color: #0ea5e9; }
-        .phase-3 .phase-number { color: #8b5cf6; }
-        .phase-4 .phase-number { color: #f59e0b; }
+        .phase-1 .phase-number { color: var(--phase-1); }
+        .phase-2 .phase-number { color: var(--phase-2); }
+        .phase-3 .phase-number { color: var(--phase-3); }
+        .phase-4 .phase-number { color: var(--phase-4); }
         
         .phase-title {
-            font-size: 1.2rem;
+            font-size: var(--text-xl);
             font-weight: 700;
-            color: #0f2a4a;
-            margin-bottom: 5px;
+            color: var(--primary);
+            margin-bottom: var(--space-1);
         }
-        
         .phase-amount {
-            font-size: 1.1rem;
+            font-size: var(--text-lg);
             font-weight: 600;
-            color: #14b8a6;
-            margin-bottom: 5px;
+            color: var(--secondary);
+            margin-bottom: var(--space-1);
         }
-        
         .phase-timeline {
-            font-size: 0.85rem;
-            color: #64748b;
-            margin-bottom: 15px;
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            margin-bottom: var(--space-4);
         }
-        
         .phase-list {
             list-style: none;
         }
-        
         .phase-list li {
-            padding: 8px 0;
-            font-size: 0.9rem;
-            color: #475569;
-            border-bottom: 1px solid #f1f5f9;
+            padding: var(--space-2) 0;
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: var(--space-2);
         }
-        
-        .phase-list li:last-child {
-            border-bottom: none;
-        }
+        .phase-list li:last-child { border-bottom: none; }
         
         .check-icon {
             width: 16px;
             height: 16px;
-            background: #14b8a6;
+            background: var(--secondary);
             border-radius: 50%;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
         }
-        
         .check-icon::after {
             content: '';
             width: 6px;
             height: 6px;
-            background: #fff;
+            background: var(--surface);
             border-radius: 50%;
         }
         
-        /* Cancer Grid */
-        .cancer-section {
-            background: #f8fafc;
-        }
-        
+        /* ===== COMPONENT: Cancer Grid ===== */
+        .cancer-section { background: var(--background); }
         .cancer-grid {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
-            gap: 15px;
+            gap: var(--space-4);
         }
-        
         .cancer-card {
-            background: #fff;
-            border-radius: 10px;
-            padding: 25px 15px;
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            padding: var(--space-6) var(--space-4);
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+            transition: all var(--transition);
         }
-        
-        .cancer-card:hover {
-            border-color: #14b8a6;
-        }
-        
+        .cancer-card:hover { border-color: var(--secondary); }
         .cancer-card.active {
-            border-color: #14b8a6;
-            background: linear-gradient(180deg, #f0fdfa 0%, #fff 100%);
+            border-color: var(--secondary);
+            background: linear-gradient(180deg, #f0fdfa 0%, var(--surface) 100%);
         }
-        
         .cancer-icon {
-            width: 50px;
-            height: 50px;
-            background: #f1f5f9;
-            border-radius: 12px;
-            margin: 0 auto 15px;
+            width: 48px;
+            height: 48px;
+            background: var(--background);
+            border-radius: var(--radius-md);
+            margin: 0 auto var(--space-4);
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        
-        .cancer-card.active .cancer-icon {
-            background: #ccfbf1;
-        }
-        
+        .cancer-card.active .cancer-icon { background: #ccfbf1; }
         .cancer-icon svg {
             width: 24px;
             height: 24px;
-            stroke: #64748b;
+            stroke: var(--text-muted);
         }
-        
-        .cancer-card.active .cancer-icon svg {
-            stroke: #14b8a6;
-        }
-        
+        .cancer-card.active .cancer-icon svg { stroke: var(--secondary); }
         .cancer-name {
             font-weight: 600;
-            color: #0f2a4a;
-            font-size: 0.95rem;
-            margin-bottom: 5px;
+            color: var(--primary);
+            font-size: var(--text-base);
+            margin-bottom: var(--space-1);
         }
-        
         .cancer-timing {
-            font-size: 0.8rem;
-            color: #64748b;
+            font-size: var(--text-sm);
+            color: var(--text-muted);
         }
-        
         .cancer-card.active .cancer-timing {
-            color: #14b8a6;
+            color: var(--secondary);
             font-weight: 600;
         }
         
-        /* Treatment Section */
+        /* ===== COMPONENT: Treatment ===== */
         .treatment-section {
-            background: linear-gradient(135deg, #0f2a4a 0%, #1e3a5f 100%);
-            color: #fff;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--surface);
         }
-        
-        .treatment-section .section-label {
-            color: #14b8a6;
-        }
-        
-        .treatment-section .section-title {
-            color: #fff;
-        }
-        
+        .treatment-section .section-label { color: var(--secondary); }
+        .treatment-section .section-title { color: var(--surface); }
         .treatment-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: var(--space-10);
         }
-        
         .treatment-column {
             background: rgba(255,255,255,0.05);
-            border-radius: 12px;
-            padding: 30px;
+            border-radius: var(--radius-lg);
+            padding: var(--space-8);
             border: 1px solid rgba(255,255,255,0.1);
         }
-        
         .treatment-column h4 {
-            font-size: 0.85rem;
+            font-size: var(--text-sm);
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 20px;
-            color: #94a3b8;
+            margin-bottom: var(--space-5);
+            color: var(--text-light);
         }
-        
-        .treatment-column.old h4 {
-            color: #f87171;
-        }
-        
-        .treatment-column.new h4 {
-            color: #14b8a6;
-        }
-        
-        .treatment-list {
-            list-style: none;
-        }
-        
+        .treatment-column.old h4 { color: #f87171; }
+        .treatment-column.new h4 { color: var(--secondary); }
+        .treatment-list { list-style: none; }
         .treatment-list li {
-            padding: 12px 0;
+            padding: var(--space-3) 0;
             border-bottom: 1px solid rgba(255,255,255,0.1);
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 0.95rem;
+            gap: var(--space-3);
+            font-size: var(--text-base);
         }
-        
-        .treatment-list li:last-child {
-            border-bottom: none;
-        }
-        
+        .treatment-list li:last-child { border-bottom: none; }
         .treatment-column.old .treatment-list li {
-            color: #94a3b8;
+            color: var(--text-light);
             text-decoration: line-through;
         }
-        
-        .treatment-column.new .treatment-list li {
-            color: #e2e8f0;
-        }
-        
+        .treatment-column.new .treatment-list li { color: #e2e8f0; }
         .icon-x, .icon-check {
             width: 20px;
             height: 20px;
@@ -471,124 +450,98 @@
             font-weight: bold;
             font-size: 12px;
         }
-        
         .icon-x {
             background: rgba(248, 113, 113, 0.2);
             color: #f87171;
         }
-        
         .icon-check {
             background: rgba(20, 184, 166, 0.2);
-            color: #14b8a6;
+            color: var(--secondary);
         }
         
-        /* Funding */
+        /* ===== COMPONENT: Funding ===== */
         .funding-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: var(--space-5);
         }
-        
         .funding-card {
-            background: #fff;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            border-left: 4px solid #0ea5e9;
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--accent);
+            transition: transform var(--transition), box-shadow var(--transition);
         }
-        
+        .funding-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
         .funding-source {
-            font-size: 1.1rem;
+            font-size: var(--text-lg);
             font-weight: 700;
-            color: #0f2a4a;
-            margin-bottom: 8px;
+            color: var(--primary);
+            margin-bottom: var(--space-2);
         }
-        
         .funding-amount {
-            font-size: 1.3rem;
+            font-size: var(--text-xl);
             font-weight: 700;
-            color: #14b8a6;
-            margin-bottom: 10px;
+            color: var(--secondary);
+            margin-bottom: var(--space-3);
         }
-        
         .funding-desc {
-            font-size: 0.9rem;
-            color: #64748b;
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            line-height: 1.5;
         }
         
-        /* Footer */
+        /* ===== COMPONENT: Footer ===== */
         footer {
-            background: #0f2a4a;
-            color: #94a3b8;
-            padding: 50px 0 30px;
+            background: var(--primary);
+            color: var(--text-light);
+            padding: var(--space-12) 0 var(--space-8);
         }
-        
         .footer-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-bottom: 30px;
+            padding-bottom: var(--space-8);
             border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 30px;
+            margin-bottom: var(--space-8);
         }
-        
         .footer-logo {
-            font-size: 1.5rem;
+            font-size: var(--text-2xl);
             font-weight: 700;
-            color: #fff;
+            color: var(--surface);
         }
-        
         .footer-tagline {
-            color: #64748b;
-            font-size: 0.9rem;
-            margin-top: 5px;
+            color: var(--text-muted);
+            font-size: var(--text-sm);
+            margin-top: var(--space-1);
         }
-        
         .footer-contact a {
-            color: #14b8a6;
+            color: var(--secondary);
             text-decoration: none;
         }
-        
         .footer-bottom {
             text-align: center;
-            font-size: 0.85rem;
+            font-size: var(--text-sm);
         }
         
-        /* Mobile */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
-            .timeline-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .cancer-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .funding-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .timeline-grid { grid-template-columns: repeat(2, 1fr); }
+            .cancer-grid { grid-template-columns: repeat(3, 1fr); }
+            .funding-grid { grid-template-columns: repeat(2, 1fr); }
         }
-        
         @media (max-width: 768px) {
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .timeline-grid {
-                grid-template-columns: 1fr;
-            }
-            .cancer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .treatment-grid {
-                grid-template-columns: 1fr;
-            }
-            .funding-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .nav-links {
-                display: none;
-            }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .timeline-grid { grid-template-columns: 1fr; }
+            .cancer-grid { grid-template-columns: repeat(2, 1fr); }
+            .treatment-grid { grid-template-columns: 1fr; }
+            .funding-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: var(--text-3xl); }
+            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -597,11 +550,11 @@
     <div class="top-bar">
         <div class="container">
             <span>Biophotonic Cancer Detection and Treatment</span>
-            <span><a href="mailto:kelly.lucas@helioflux.co">kelly.lucas@helioflux.co</a></span>
+            <a href="mailto:kelly.lucas@helioflux.co">kelly.lucas@helioflux.co</a>
         </div>
     </div>
     
-    <!-- Main Header -->
+    <!-- Header -->
     <header class="main-header">
         <div class="container">
             <div class="logo">
@@ -626,7 +579,7 @@
             <div class="hero-content">
                 <span class="hero-label">5-Year Strategic Roadmap</span>
                 <h1>See Cancer Before It Sees You. Treat It Before It Spreads.</h1>
-                <p>HelioFlux is building the future of cancer care: detect it 100x earlier with biophotonics, then treat it with targeted electromagnetic therapy - without chemotherapy's devastating side effects.</p>
+                <p>HelioFlux is building the future of cancer care: detect it 100x earlier with biophotonics, then treat it with targeted electromagnetic therapy without chemotherapy's devastating side effects.</p>
                 <a href="#roadmap" class="btn-primary">View Roadmap</a>
             </div>
         </div>
@@ -663,7 +616,6 @@
                 <span class="section-label">Strategic Plan</span>
                 <h2 class="section-title">5-Year Development Roadmap</h2>
             </div>
-            
             <div class="timeline-grid">
                 <div class="phase-card phase-1">
                     <div class="phase-number">Phase 1</div>
@@ -678,7 +630,6 @@
                         <li><span class="check-icon"></span>FDA pre-submission</li>
                     </ul>
                 </div>
-                
                 <div class="phase-card phase-2">
                     <div class="phase-number">Phase 2</div>
                     <div class="phase-title">Multi-Cancer Expansion</div>
@@ -692,7 +643,6 @@
                         <li><span class="check-icon"></span>Multi-site clinical network</li>
                     </ul>
                 </div>
-                
                 <div class="phase-card phase-3">
                     <div class="phase-number">Phase 3</div>
                     <div class="phase-title">Treatment Development</div>
@@ -706,7 +656,6 @@
                         <li><span class="check-icon"></span>IND application</li>
                     </ul>
                 </div>
-                
                 <div class="phase-card phase-4">
                     <div class="phase-number">Phase 4</div>
                     <div class="phase-title">Commercialization</div>
@@ -731,7 +680,6 @@
                 <span class="section-label">Target Indications</span>
                 <h2 class="section-title">Cancer Expansion Timeline</h2>
             </div>
-            
             <div class="cancer-grid">
                 <div class="cancer-card active">
                     <div class="cancer-icon">
@@ -742,7 +690,6 @@
                     <div class="cancer-name">Melanoma</div>
                     <div class="cancer-timing">Validated</div>
                 </div>
-                
                 <div class="cancer-card active">
                     <div class="cancer-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -752,7 +699,6 @@
                     <div class="cancer-name">Brain / GBM</div>
                     <div class="cancer-timing">Validated</div>
                 </div>
-                
                 <div class="cancer-card">
                     <div class="cancer-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -762,7 +708,6 @@
                     <div class="cancer-name">Breast</div>
                     <div class="cancer-timing">Year 2</div>
                 </div>
-                
                 <div class="cancer-card">
                     <div class="cancer-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -772,7 +717,6 @@
                     <div class="cancer-name">Lung</div>
                     <div class="cancer-timing">Year 2</div>
                 </div>
-                
                 <div class="cancer-card">
                     <div class="cancer-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -782,7 +726,6 @@
                     <div class="cancer-name">Pancreatic</div>
                     <div class="cancer-timing">Year 2-3</div>
                 </div>
-                
                 <div class="cancer-card">
                     <div class="cancer-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -803,7 +746,6 @@
                 <span class="section-label">Phase 3 Vision</span>
                 <h2 class="section-title">The Treatment Revolution</h2>
             </div>
-            
             <div class="treatment-grid">
                 <div class="treatment-column old">
                     <h4>Current Cancer Treatment</h4>
@@ -815,7 +757,6 @@
                         <li><span class="icon-x">X</span>Monitor every 3-6 months</li>
                     </ul>
                 </div>
-                
                 <div class="treatment-column new">
                     <h4>HelioFlux Future</h4>
                     <ul class="treatment-list">
@@ -837,38 +778,32 @@
                 <span class="section-label">Non-Dilutive Capital</span>
                 <h2 class="section-title">Target Funding Sources</h2>
             </div>
-            
             <div class="funding-grid">
                 <div class="funding-card">
                     <div class="funding-source">ARPA-H</div>
                     <div class="funding-amount">$2M - $5M</div>
                     <div class="funding-desc">PREPARE program, high-risk/high-reward health innovation</div>
                 </div>
-                
                 <div class="funding-card">
                     <div class="funding-source">NIH / NCI</div>
                     <div class="funding-amount">$1M - $2M</div>
                     <div class="funding-desc">R01, R21, SBIR/STTR research grants</div>
                 </div>
-                
                 <div class="funding-card">
                     <div class="funding-source">DOD CDMRP</div>
                     <div class="funding-amount">$500K - $1.5M</div>
                     <div class="funding-desc">Breast, brain, lung cancer defense programs</div>
                 </div>
-                
                 <div class="funding-card">
                     <div class="funding-source">BARDA</div>
                     <div class="funding-amount">$1M - $3M</div>
                     <div class="funding-desc">Diagnostic and therapeutic platform development</div>
                 </div>
-                
                 <div class="funding-card">
                     <div class="funding-source">Congressional</div>
                     <div class="funding-amount">$1M - $5M</div>
                     <div class="funding-desc">Directed appropriations and earmarks</div>
                 </div>
-                
                 <div class="funding-card">
                     <div class="funding-source">NSF SBIR</div>
                     <div class="funding-amount">$250K - $500K</div>
@@ -887,7 +822,7 @@
                     <div class="footer-tagline">Biophotonic Cancer Detection and Treatment</div>
                 </div>
                 <div class="footer-contact">
-                    <p><a href="mailto:kelly.lucas@helioflux.co">kelly.lucas@helioflux.co</a></p>
+                    <a href="mailto:kelly.lucas@helioflux.co">kelly.lucas@helioflux.co</a>
                 </div>
             </div>
             <div class="footer-bottom">
