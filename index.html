@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HelioFlux 5-Year Strategic Roadmap</title>
+    <title>HelioFlux | 5-Year Strategic Roadmap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,526 +13,887 @@
         }
         
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg, #0a1628 0%, #1a365d 50%, #0a1628 100%);
-            min-height: 100vh;
-            color: #e2e8f0;
-            padding: 20px;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
         }
         
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
+        /* Header */
+        .top-bar {
+            background: #0f2a4a;
+            color: #94a3b8;
+            padding: 8px 0;
+            font-size: 0.85rem;
         }
         
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 40px;
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .top-bar a {
+            color: #94a3b8;
+            text-decoration: none;
+        }
+        
+        .main-header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
         }
         
         .logo {
-            font-size: 3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #60a5fa, #34d399);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
-        .tagline {
-            font-size: 1.3rem;
-            color: #94a3b8;
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #0ea5e9, #14b8a6);
+            border-radius: 10px;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f2a4a;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #475569;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .nav-links a:hover {
+            color: #0ea5e9;
+        }
+        
+        .btn-primary {
+            background: #14b8a6;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background: #0d9488;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #0f2a4a 0%, #1e3a5f 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="80" cy="20" r="40" fill="%2314b8a620"/><circle cx="90" cy="60" r="30" fill="%230ea5e915"/></svg>');
+            background-size: cover;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+        
+        .hero-label {
+            display: inline-block;
+            background: rgba(20, 184, 166, 0.2);
+            color: #14b8a6;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
             margin-bottom: 20px;
         }
         
-        .headline {
-            font-size: 1.1rem;
-            color: #60a5fa;
-            font-weight: 600;
+        .hero h1 {
+            color: #fff;
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
         }
         
-        .stats-row {
+        .hero p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+        
+        /* Stats */
+        .stats-section {
+            padding: 60px 0;
+            background: #fff;
+        }
+        
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
         }
         
         .stat-card {
-            background: rgba(30, 58, 95, 0.6);
-            border: 1px solid rgba(96, 165, 250, 0.3);
-            border-radius: 16px;
-            padding: 25px;
             text-align: center;
+            padding: 30px 20px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
         }
         
         .stat-value {
             font-size: 2.5rem;
             font-weight: 700;
-            color: #60a5fa;
+            color: #0f2a4a;
+        }
+        
+        .stat-value span {
+            color: #14b8a6;
         }
         
         .stat-label {
-            color: #94a3b8;
-            font-size: 0.9rem;
-            margin-top: 5px;
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-top: 8px;
+        }
+        
+        /* Section */
+        .section {
+            padding: 70px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-label {
+            display: inline-block;
+            color: #64748b;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
         }
         
         .section-title {
-            font-size: 1.8rem;
-            color: #60a5fa;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid rgba(96, 165, 250, 0.3);
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0f2a4a;
         }
         
         /* Timeline */
-        .timeline {
-            position: relative;
-            margin: 50px 0;
-        }
-        
-        .timeline-track {
+        .timeline-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
+            gap: 20px;
         }
         
         .phase-card {
-            background: rgba(30, 58, 95, 0.8);
-            border-radius: 16px;
+            background: #fff;
+            border-radius: 12px;
             padding: 25px;
-            border: 2px solid;
-            position: relative;
-            transition: transform 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border-top: 4px solid;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
         .phase-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
         }
         
-        .phase-1 { border-color: #34d399; }
-        .phase-2 { border-color: #60a5fa; }
-        .phase-3 { border-color: #f472b6; }
-        .phase-4 { border-color: #fbbf24; }
+        .phase-1 { border-top-color: #14b8a6; }
+        .phase-2 { border-top-color: #0ea5e9; }
+        .phase-3 { border-top-color: #8b5cf6; }
+        .phase-4 { border-top-color: #f59e0b; }
         
-        .phase-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
+        .phase-number {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
         }
         
-        .phase-name {
-            font-size: 1.3rem;
+        .phase-1 .phase-number { color: #14b8a6; }
+        .phase-2 .phase-number { color: #0ea5e9; }
+        .phase-3 .phase-number { color: #8b5cf6; }
+        .phase-4 .phase-number { color: #f59e0b; }
+        
+        .phase-title {
+            font-size: 1.2rem;
             font-weight: 700;
+            color: #0f2a4a;
+            margin-bottom: 5px;
         }
-        
-        .phase-1 .phase-name { color: #34d399; }
-        .phase-2 .phase-name { color: #60a5fa; }
-        .phase-3 .phase-name { color: #f472b6; }
-        .phase-4 .phase-name { color: #fbbf24; }
         
         .phase-amount {
             font-size: 1.1rem;
             font-weight: 600;
-            color: #e2e8f0;
-            background: rgba(0,0,0,0.3);
-            padding: 5px 12px;
-            border-radius: 20px;
+            color: #14b8a6;
+            margin-bottom: 5px;
         }
         
         .phase-timeline {
-            color: #94a3b8;
             font-size: 0.85rem;
+            color: #64748b;
             margin-bottom: 15px;
         }
         
-        .phase-focus {
-            font-size: 1rem;
-            color: #e2e8f0;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        
-        .phase-items {
+        .phase-list {
             list-style: none;
         }
         
-        .phase-items li {
-            padding: 6px 0;
-            color: #94a3b8;
+        .phase-list li {
+            padding: 8px 0;
             font-size: 0.9rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: #475569;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
-        .phase-items li:last-child {
+        .phase-list li:last-child {
             border-bottom: none;
         }
         
+        .check-icon {
+            width: 16px;
+            height: 16px;
+            background: #14b8a6;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .check-icon::after {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #fff;
+            border-radius: 50%;
+        }
+        
         /* Cancer Grid */
+        .cancer-section {
+            background: #f8fafc;
+        }
+        
         .cancer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(6, 1fr);
             gap: 15px;
-            margin: 30px 0;
         }
         
         .cancer-card {
-            background: rgba(30, 58, 95, 0.6);
-            border-radius: 12px;
-            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 25px 15px;
             text-align: center;
-            border: 1px solid rgba(96, 165, 250, 0.2);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s;
+        }
+        
+        .cancer-card:hover {
+            border-color: #14b8a6;
+        }
+        
+        .cancer-card.active {
+            border-color: #14b8a6;
+            background: linear-gradient(180deg, #f0fdfa 0%, #fff 100%);
         }
         
         .cancer-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
+            width: 50px;
+            height: 50px;
+            background: #f1f5f9;
+            border-radius: 12px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cancer-card.active .cancer-icon {
+            background: #ccfbf1;
+        }
+        
+        .cancer-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: #64748b;
+        }
+        
+        .cancer-card.active .cancer-icon svg {
+            stroke: #14b8a6;
         }
         
         .cancer-name {
             font-weight: 600;
-            color: #e2e8f0;
+            color: #0f2a4a;
+            font-size: 0.95rem;
             margin-bottom: 5px;
         }
         
         .cancer-timing {
             font-size: 0.8rem;
-            color: #60a5fa;
-        }
-        
-        .cancer-card.active {
-            border-color: #34d399;
-            background: rgba(52, 211, 153, 0.1);
+            color: #64748b;
         }
         
         .cancer-card.active .cancer-timing {
-            color: #34d399;
+            color: #14b8a6;
+            font-weight: 600;
         }
         
         /* Treatment Section */
         .treatment-section {
-            background: linear-gradient(135deg, rgba(244, 114, 182, 0.1), rgba(96, 165, 250, 0.1));
-            border: 2px solid rgba(244, 114, 182, 0.3);
-            border-radius: 20px;
-            padding: 35px;
-            margin: 40px 0;
+            background: linear-gradient(135deg, #0f2a4a 0%, #1e3a5f 100%);
+            color: #fff;
         }
         
-        .treatment-title {
-            color: #f472b6;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .treatment-section .section-label {
+            color: #14b8a6;
+        }
+        
+        .treatment-section .section-title {
+            color: #fff;
         }
         
         .treatment-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 40px;
+        }
+        
+        .treatment-column {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
         
         .treatment-column h4 {
-            color: #94a3b8;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-bottom: 20px;
+            color: #94a3b8;
         }
         
-        .treatment-column ul {
+        .treatment-column.old h4 {
+            color: #f87171;
+        }
+        
+        .treatment-column.new h4 {
+            color: #14b8a6;
+        }
+        
+        .treatment-list {
             list-style: none;
         }
         
-        .treatment-column li {
-            padding: 8px 0;
+        .treatment-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            font-size: 0.95rem;
         }
         
-        .old-way {
-            color: #ef4444;
+        .treatment-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .treatment-column.old .treatment-list li {
+            color: #94a3b8;
             text-decoration: line-through;
-            opacity: 0.7;
         }
         
-        .new-way {
-            color: #34d399;
+        .treatment-column.new .treatment-list li {
+            color: #e2e8f0;
         }
         
-        /* Funding Sources */
+        .icon-x, .icon-check {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        
+        .icon-x {
+            background: rgba(248, 113, 113, 0.2);
+            color: #f87171;
+        }
+        
+        .icon-check {
+            background: rgba(20, 184, 166, 0.2);
+            color: #14b8a6;
+        }
+        
+        /* Funding */
         .funding-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            margin: 30px 0;
         }
         
         .funding-card {
-            background: rgba(30, 58, 95, 0.6);
+            background: #fff;
             border-radius: 12px;
-            padding: 20px;
-            border-left: 4px solid #60a5fa;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border-left: 4px solid #0ea5e9;
         }
         
         .funding-source {
-            font-weight: 700;
-            color: #60a5fa;
             font-size: 1.1rem;
+            font-weight: 700;
+            color: #0f2a4a;
+            margin-bottom: 8px;
         }
         
         .funding-amount {
-            color: #34d399;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin: 8px 0;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #14b8a6;
+            margin-bottom: 10px;
         }
         
         .funding-desc {
-            color: #94a3b8;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            color: #64748b;
         }
         
         /* Footer */
         footer {
-            text-align: center;
-            padding: 40px;
-            color: #64748b;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 50px;
+            background: #0f2a4a;
+            color: #94a3b8;
+            padding: 50px 0 30px;
         }
         
-        footer a {
-            color: #60a5fa;
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        
+        .footer-tagline {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        
+        .footer-contact a {
+            color: #14b8a6;
             text-decoration: none;
         }
         
+        .footer-bottom {
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        
         /* Mobile */
-        @media (max-width: 900px) {
-            .timeline-track {
-                grid-template-columns: 1fr;
+        @media (max-width: 1024px) {
+            .timeline-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-            
-            .treatment-grid {
-                grid-template-columns: 1fr;
+            .cancer-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
-            
-            .logo {
-                font-size: 2rem;
+            .funding-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         
-        /* Arrow indicator */
-        .arrow-right {
-            color: #60a5fa;
-            font-size: 1.5rem;
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .timeline-grid {
+                grid-template-columns: 1fr;
+            }
+            .cancer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .treatment-grid {
+                grid-template-columns: 1fr;
+            }
+            .funding-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .nav-links {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">☀️ HelioFlux</div>
-            <p class="tagline">Biophotonic Cancer Detection & Treatment</p>
-            <p class="headline">See cancer before it sees you. Treat it before it spreads.</p>
-        </header>
-        
-        <div class="stats-row">
-            <div class="stat-card">
-                <div class="stat-value">100x</div>
-                <div class="stat-label">Earlier Detection</div>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <span>Biophotonic Cancer Detection and Treatment</span>
+            <span><a href="mailto:kelly.lucas@helioflux.co">kelly.lucas@helioflux.co</a></span>
+        </div>
+    </div>
+    
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <span class="logo-text">HelioFlux</span>
             </div>
-            <div class="stat-card">
-                <div class="stat-value">10K</div>
-                <div class="stat-label">Cells vs 1M Traditional</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value">$5-10M</div>
-                <div class="stat-label">5-Year Program</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value">5+</div>
-                <div class="stat-label">Cancer Types</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#roadmap">Roadmap</a></li>
+                    <li><a href="#cancers">Cancer Types</a></li>
+                    <li><a href="#treatment">Treatment</a></li>
+                    <li><a href="#funding">Funding</a></li>
+                </ul>
+            </nav>
+            <a href="mailto:kelly.lucas@helioflux.co" class="btn-primary">Contact Us</a>
+        </div>
+    </header>
+    
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-label">5-Year Strategic Roadmap</span>
+                <h1>See Cancer Before It Sees You. Treat It Before It Spreads.</h1>
+                <p>HelioFlux is building the future of cancer care: detect it 100x earlier with biophotonics, then treat it with targeted electromagnetic therapy - without chemotherapy's devastating side effects.</p>
+                <a href="#roadmap" class="btn-primary">View Roadmap</a>
             </div>
         </div>
-        
-        <h2 class="section-title">📅 5-Year Strategic Roadmap</h2>
-        
-        <div class="timeline">
-            <div class="timeline-track">
+    </section>
+    
+    <!-- Stats -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">100<span>x</span></div>
+                    <div class="stat-label">Earlier Detection</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">10<span>K</span></div>
+                    <div class="stat-label">Cells vs 1M Traditional</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">$5-10<span>M</span></div>
+                    <div class="stat-label">5-Year Program</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">5<span>+</span></div>
+                    <div class="stat-label">Cancer Types</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Roadmap -->
+    <section class="section" id="roadmap">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Strategic Plan</span>
+                <h2 class="section-title">5-Year Development Roadmap</h2>
+            </div>
+            
+            <div class="timeline-grid">
                 <div class="phase-card phase-1">
-                    <div class="phase-header">
-                        <span class="phase-name">Phase 1</span>
-                        <span class="phase-amount">$500K-$1M</span>
-                    </div>
+                    <div class="phase-number">Phase 1</div>
+                    <div class="phase-title">Detection Validation</div>
+                    <div class="phase-amount">$500K - $1M</div>
                     <div class="phase-timeline">Months 1-18</div>
-                    <div class="phase-focus">Detection Validation</div>
-                    <ul class="phase-items">
-                        <li>✓ Melanoma study (n=100)</li>
-                        <li>✓ Brain cancer study (n=50)</li>
-                        <li>✓ Chemo brain detection</li>
-                        <li>✓ Peer-reviewed publications</li>
-                        <li>✓ FDA pre-submission</li>
+                    <ul class="phase-list">
+                        <li><span class="check-icon"></span>Melanoma study (n=100)</li>
+                        <li><span class="check-icon"></span>Brain cancer study (n=50)</li>
+                        <li><span class="check-icon"></span>Chemo brain detection</li>
+                        <li><span class="check-icon"></span>Peer-reviewed publications</li>
+                        <li><span class="check-icon"></span>FDA pre-submission</li>
                     </ul>
                 </div>
                 
                 <div class="phase-card phase-2">
-                    <div class="phase-header">
-                        <span class="phase-name">Phase 2</span>
-                        <span class="phase-amount">$1.5-$2.5M</span>
-                    </div>
+                    <div class="phase-number">Phase 2</div>
+                    <div class="phase-title">Multi-Cancer Expansion</div>
+                    <div class="phase-amount">$1.5M - $2.5M</div>
                     <div class="phase-timeline">Months 18-36</div>
-                    <div class="phase-focus">Multi-Cancer Expansion</div>
-                    <ul class="phase-items">
-                        <li>→ Breast cancer</li>
-                        <li>→ Lung cancer</li>
-                        <li>→ Pancreatic cancer</li>
-                        <li>→ Colorectal cancer</li>
-                        <li>→ Multi-site clinical network</li>
+                    <ul class="phase-list">
+                        <li><span class="check-icon"></span>Breast cancer</li>
+                        <li><span class="check-icon"></span>Lung cancer</li>
+                        <li><span class="check-icon"></span>Pancreatic cancer</li>
+                        <li><span class="check-icon"></span>Colorectal cancer</li>
+                        <li><span class="check-icon"></span>Multi-site clinical network</li>
                     </ul>
                 </div>
                 
                 <div class="phase-card phase-3">
-                    <div class="phase-header">
-                        <span class="phase-name">Phase 3</span>
-                        <span class="phase-amount">$2-$3M</span>
-                    </div>
+                    <div class="phase-number">Phase 3</div>
+                    <div class="phase-title">Treatment Development</div>
+                    <div class="phase-amount">$2M - $3M</div>
                     <div class="phase-timeline">Months 30-48</div>
-                    <div class="phase-focus">🎯 TREATMENT Development</div>
-                    <ul class="phase-items">
-                        <li>⚡ EM cancer reprogramming</li>
-                        <li>⚡ Photobiomodulation</li>
-                        <li>⚡ First-in-human trial</li>
-                        <li>⚡ Combination therapy</li>
-                        <li>⚡ IND application</li>
+                    <ul class="phase-list">
+                        <li><span class="check-icon"></span>EM cancer reprogramming</li>
+                        <li><span class="check-icon"></span>Photobiomodulation</li>
+                        <li><span class="check-icon"></span>First-in-human trial</li>
+                        <li><span class="check-icon"></span>Combination therapy</li>
+                        <li><span class="check-icon"></span>IND application</li>
                     </ul>
                 </div>
                 
                 <div class="phase-card phase-4">
-                    <div class="phase-header">
-                        <span class="phase-name">Phase 4</span>
-                        <span class="phase-amount">$1.5-$2.5M</span>
-                    </div>
+                    <div class="phase-number">Phase 4</div>
+                    <div class="phase-title">Commercialization</div>
+                    <div class="phase-amount">$1.5M - $2.5M</div>
                     <div class="phase-timeline">Months 42-60</div>
-                    <div class="phase-focus">Commercialization</div>
-                    <ul class="phase-items">
-                        <li>★ FDA clearance (detection)</li>
-                        <li>★ FDA clearance (treatment)</li>
-                        <li>★ 10+ cancer centers</li>
-                        <li>★ Manufacturing scale</li>
-                        <li>★ Reimbursement codes</li>
+                    <ul class="phase-list">
+                        <li><span class="check-icon"></span>FDA clearance (detection)</li>
+                        <li><span class="check-icon"></span>FDA clearance (treatment)</li>
+                        <li><span class="check-icon"></span>10+ cancer centers</li>
+                        <li><span class="check-icon"></span>Manufacturing scale</li>
+                        <li><span class="check-icon"></span>Reimbursement codes</li>
                     </ul>
                 </div>
             </div>
         </div>
-        
-        <h2 class="section-title">🎯 Cancer Expansion Timeline</h2>
-        
-        <div class="cancer-grid">
-            <div class="cancer-card active">
-                <div class="cancer-icon">🔬</div>
-                <div class="cancer-name">Melanoma</div>
-                <div class="cancer-timing">NOW ✓</div>
+    </section>
+    
+    <!-- Cancer Types -->
+    <section class="section cancer-section" id="cancers">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Target Indications</span>
+                <h2 class="section-title">Cancer Expansion Timeline</h2>
             </div>
-            <div class="cancer-card active">
-                <div class="cancer-icon">🧠</div>
-                <div class="cancer-name">Brain / GBM</div>
-                <div class="cancer-timing">NOW ✓</div>
-            </div>
-            <div class="cancer-card">
-                <div class="cancer-icon">💗</div>
-                <div class="cancer-name">Breast</div>
-                <div class="cancer-timing">Year 2</div>
-            </div>
-            <div class="cancer-card">
-                <div class="cancer-icon">🫁</div>
-                <div class="cancer-name">Lung</div>
-                <div class="cancer-timing">Year 2</div>
-            </div>
-            <div class="cancer-card">
-                <div class="cancer-icon">🔶</div>
-                <div class="cancer-name">Pancreatic</div>
-                <div class="cancer-timing">Year 2-3</div>
-            </div>
-            <div class="cancer-card">
-                <div class="cancer-icon">🟤</div>
-                <div class="cancer-name">Colorectal</div>
-                <div class="cancer-timing">Year 2-3</div>
+            
+            <div class="cancer-grid">
+                <div class="cancer-card active">
+                    <div class="cancer-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                        </svg>
+                    </div>
+                    <div class="cancer-name">Melanoma</div>
+                    <div class="cancer-timing">Validated</div>
+                </div>
+                
+                <div class="cancer-card active">
+                    <div class="cancer-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
+                        </svg>
+                    </div>
+                    <div class="cancer-name">Brain / GBM</div>
+                    <div class="cancer-timing">Validated</div>
+                </div>
+                
+                <div class="cancer-card">
+                    <div class="cancer-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                        </svg>
+                    </div>
+                    <div class="cancer-name">Breast</div>
+                    <div class="cancer-timing">Year 2</div>
+                </div>
+                
+                <div class="cancer-card">
+                    <div class="cancer-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33" />
+                        </svg>
+                    </div>
+                    <div class="cancer-name">Lung</div>
+                    <div class="cancer-timing">Year 2</div>
+                </div>
+                
+                <div class="cancer-card">
+                    <div class="cancer-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+                        </svg>
+                    </div>
+                    <div class="cancer-name">Pancreatic</div>
+                    <div class="cancer-timing">Year 2-3</div>
+                </div>
+                
+                <div class="cancer-card">
+                    <div class="cancer-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25z" />
+                        </svg>
+                    </div>
+                    <div class="cancer-name">Colorectal</div>
+                    <div class="cancer-timing">Year 2-3</div>
+                </div>
             </div>
         </div>
-        
-        <div class="treatment-section">
-            <h3 class="treatment-title">⚡ The Treatment Revolution (Phase 3)</h3>
+    </section>
+    
+    <!-- Treatment -->
+    <section class="section treatment-section" id="treatment">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Phase 3 Vision</span>
+                <h2 class="section-title">The Treatment Revolution</h2>
+            </div>
+            
             <div class="treatment-grid">
-                <div class="treatment-column">
+                <div class="treatment-column old">
                     <h4>Current Cancer Treatment</h4>
-                    <ul>
-                        <li><span class="old-way">❌ Detect tumor late stage</span></li>
-                        <li><span class="old-way">❌ Surgery (invasive)</span></li>
-                        <li><span class="old-way">❌ Chemotherapy (toxic)</span></li>
-                        <li><span class="old-way">❌ Radiation (damages tissue)</span></li>
-                        <li><span class="old-way">❌ Monitor every 3-6 months</span></li>
+                    <ul class="treatment-list">
+                        <li><span class="icon-x">X</span>Detect tumor at late stage</li>
+                        <li><span class="icon-x">X</span>Surgery (invasive)</li>
+                        <li><span class="icon-x">X</span>Chemotherapy (toxic to all cells)</li>
+                        <li><span class="icon-x">X</span>Radiation (damages healthy tissue)</li>
+                        <li><span class="icon-x">X</span>Monitor every 3-6 months</li>
                     </ul>
                 </div>
-                <div class="treatment-column">
+                
+                <div class="treatment-column new">
                     <h4>HelioFlux Future</h4>
-                    <ul>
-                        <li><span class="new-way">✓ Detect at earliest cells</span></li>
-                        <li><span class="new-way">✓ No surgery (cells reprogrammed)</span></li>
-                        <li><span class="new-way">✓ EM treatment (non-toxic)</span></li>
-                        <li><span class="new-way">✓ Light-based (precise)</span></li>
-                        <li><span class="new-way">✓ Real-time monitoring</span></li>
+                    <ul class="treatment-list">
+                        <li><span class="icon-check">&#10003;</span>Detect at earliest cells</li>
+                        <li><span class="icon-check">&#10003;</span>No surgery (cells reprogrammed)</li>
+                        <li><span class="icon-check">&#10003;</span>EM treatment (targets only cancer)</li>
+                        <li><span class="icon-check">&#10003;</span>Light-based modulation (precise)</li>
+                        <li><span class="icon-check">&#10003;</span>Real-time continuous monitoring</li>
                     </ul>
                 </div>
             </div>
         </div>
-        
-        <h2 class="section-title">💰 Non-Dilutive Funding Targets</h2>
-        
-        <div class="funding-grid">
-            <div class="funding-card">
-                <div class="funding-source">ARPA-H</div>
-                <div class="funding-amount">$2-5M</div>
-                <div class="funding-desc">PREPARE program, high-risk/high-reward innovation</div>
+    </section>
+    
+    <!-- Funding -->
+    <section class="section" id="funding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Non-Dilutive Capital</span>
+                <h2 class="section-title">Target Funding Sources</h2>
             </div>
-            <div class="funding-card">
-                <div class="funding-source">NIH / NCI</div>
-                <div class="funding-amount">$1-2M</div>
-                <div class="funding-desc">R01, R21, SBIR/STTR grants</div>
-            </div>
-            <div class="funding-card">
-                <div class="funding-source">DOD CDMRP</div>
-                <div class="funding-amount">$500K-1.5M</div>
-                <div class="funding-desc">Breast, brain, lung cancer programs</div>
-            </div>
-            <div class="funding-card">
-                <div class="funding-source">BARDA</div>
-                <div class="funding-amount">$1-3M</div>
-                <div class="funding-desc">Diagnostic/therapeutic platform development</div>
-            </div>
-            <div class="funding-card">
-                <div class="funding-source">Congressional</div>
-                <div class="funding-amount">$1-5M</div>
-                <div class="funding-desc">Directed appropriations opportunities</div>
-            </div>
-            <div class="funding-card">
-                <div class="funding-source">NSF SBIR</div>
-                <div class="funding-amount">$250-500K</div>
-                <div class="funding-desc">Phase I/II small business grants</div>
+            
+            <div class="funding-grid">
+                <div class="funding-card">
+                    <div class="funding-source">ARPA-H</div>
+                    <div class="funding-amount">$2M - $5M</div>
+                    <div class="funding-desc">PREPARE program, high-risk/high-reward health innovation</div>
+                </div>
+                
+                <div class="funding-card">
+                    <div class="funding-source">NIH / NCI</div>
+                    <div class="funding-amount">$1M - $2M</div>
+                    <div class="funding-desc">R01, R21, SBIR/STTR research grants</div>
+                </div>
+                
+                <div class="funding-card">
+                    <div class="funding-source">DOD CDMRP</div>
+                    <div class="funding-amount">$500K - $1.5M</div>
+                    <div class="funding-desc">Breast, brain, lung cancer defense programs</div>
+                </div>
+                
+                <div class="funding-card">
+                    <div class="funding-source">BARDA</div>
+                    <div class="funding-amount">$1M - $3M</div>
+                    <div class="funding-desc">Diagnostic and therapeutic platform development</div>
+                </div>
+                
+                <div class="funding-card">
+                    <div class="funding-source">Congressional</div>
+                    <div class="funding-amount">$1M - $5M</div>
+                    <div class="funding-desc">Directed appropriations and earmarks</div>
+                </div>
+                
+                <div class="funding-card">
+                    <div class="funding-source">NSF SBIR</div>
+                    <div class="funding-amount">$250K - $500K</div>
+                    <div class="funding-desc">Small business innovation research grants</div>
+                </div>
             </div>
         </div>
-        
-        <footer>
-            <p><strong>HelioFlux</strong> | Biophotonic Cancer Detection & Treatment</p>
-            <p style="margin-top: 10px;">Contact: <a href="mailto:kelly.lucas@helioflux.co">kelly.lucas@helioflux.co</a></p>
-            <p style="margin-top: 20px; font-size: 0.8rem;">Prepared for The Conafay Group | February 2026</p>
-        </footer>
-    </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">HelioFlux</div>
+                    <div class="footer-tagline">Biophotonic Cancer Detection and Treatment</div>
+                </div>
+                <div class="footer-contact">
+                    <p><a href="mailto:kelly.lucas@helioflux.co">kelly.lucas@helioflux.co</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Prepared for The Conafay Group | February 2026</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
